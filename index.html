@@ -1,12 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
+    <title>Login</title>
+    <style>body{
+        background-color: #5f5f5f;
+        color: Whitesmoke;
+        text-align: center;
+    }
+    #container{
+    border:1px solid;
+    }
+    #submit{
+        text-decoration: underline;
+    }
+    </style>
+    <script>
+        function reset(){   document.getElementById("username").style.backgroundColor="whitesmoke";
+                            document.getElementById(   "pass1").style.backgroundColor="whitesmoke";
+                            document.getElementById(   "pass2").style.backgroundColor="whitesmoke";}
+        function login(){
+            reset()
+            
+            var username = document.getElementById("username").value;
+            var pass1 =    document.getElementById(   "pass1").value;
+            var pass2 =    document.getElementById(   "pass2").value;
+
+            if (username == ""){
+                document.getElementById("username").style.backgroundColor="red"
+            }
+            if (pass1== ""){
+                document.getElementById("pass1").style.backgroundColor="red"
+            }
+            if (pass2==""){
+                document.getElementById("pass2").style.backgroundColor="red"
+            }
+
+            if (pass1 != pass2){
+                document.getElementById("pass2").style.backgroundColor="red"
+            }
+            if (username != "" && pass1== pass2){
+                document.getElementById("username").value = "";
+                document.getElementById(   "pass1").value = "";
+                document.getElementById(   "pass2").value = "";
+                document.getElementById("siker").innerHTML = "Sikeres regisztráció";
+            }
+        }
+    </script>
 </head>
 <body>
-    
+    <div id="container">
+        <form>
+            <h3>Username</h3>
+            <input id="username" onclick="style.backgroundColor='whitesmoke';">
+            <h3>Password</h3>
+            <input type="password" id="pass1" onclick="style.backgroundColor='whitesmoke';">
+            <h4>Re enter your password</h4>
+            <input type="password" id="pass2" onclick="style.backgroundColor='whitesmoke';">
+            <h2 id="submit" onclick="login()">Submit</h2>
+        </form>
+    </div>
+    <div><h1 id="siker"></h1></div>
 </body>
 </html>
